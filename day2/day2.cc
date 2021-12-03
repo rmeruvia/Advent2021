@@ -13,9 +13,9 @@ void day2_part1(int &depth, int &horizontal){
         if(myfile.eof()) break;
         substr1 = current.substr(0,current.length()-2);
         update = stoi(current.substr(current.length()-2,current.length()-1));
-        if (substr1 == "up") depth = depth - update;
-        else if (substr1 == "down") depth = depth + update;
-        else horizontal = horizontal + update;
+        if (substr1 == "up") depth -= update;
+        else if (substr1 == "down") depth += update;
+        else horizontal += update;
     }
 }
 
@@ -30,11 +30,11 @@ void day2_part2(int &depth, int &horizontal, int &aim){
         if(myfile.eof()) break;
         substr1 = current.substr(0,current.length()-2);
         update = stoi(current.substr(current.length()-2,current.length()-1));
-        if (substr1 == "up") aim = aim - update;
-        else if (substr1 == "down") aim = aim + update;
+        if (substr1 == "up") aim -= update;
+        else if (substr1 == "down") aim += update;
         else{
-            horizontal = horizontal + update;
-            depth = depth + update*aim;
+            horizontal += update;
+            depth += update*aim;
         }
     }
 }
